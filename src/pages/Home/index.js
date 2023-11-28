@@ -17,7 +17,7 @@ export default function Home() {
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <View style={styles.content}>
-          <Text>Teste</Text>
+          <Text>sdlhf poisdnfoip gvoisjpovi</Text>
         </View>
 
         <View style={styles.content}>
