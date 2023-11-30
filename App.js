@@ -3,21 +3,37 @@ import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import Routes from './src/routes';
 import Welcome from './src/pages/Welcome';
+import Home from './src/pages/Home';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+
+const Stack = createNativeStackNavigator();
+
+function Tabs() {
+  return(
+    <Routes/>
+  )
+}
 
 export default function App() {
-  const [isWelcomeDone, setWelcomeDone] = useState(false);
-
-  useEffect(() => {
-    // Tempo que a tela de boas-vindas fica a mostra para o usuário
-    setTimeout(() => {
-      setWelcomeDone(true);
-    }, 7000); // Define o tempo da tela
-  }, []);
+  
 
   return (
     <NavigationContainer>
-      <StatusBar backgroundColor="#38A69D" barStyle="light-content" />
-      {isWelcomeDone ? <Routes /> : <Welcome />}
+      <Stack.Navigator initialRouteName='Welcome'>
+      <Stack.Screen name = "Welcome"
+      component={Welcome}
+      options={{
+        headerShown: false
+      }}/>
+
+      <Stack.Screen name= "Home"
+      component={Tabs}
+      options={{
+        headerShown: false
+      }}
+      />
+      </Stack.Navigator>
     </NavigationContainer>
-  );
+  )
 }

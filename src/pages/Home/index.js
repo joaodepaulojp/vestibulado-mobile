@@ -7,12 +7,13 @@ import {
     ScrollView, 
     StatusBar, 
     SafeAreaView,
-    Image, 
+    Image,
+    Button,
     Platform} from 'react-native';
 
 const statusBarHeight = StatusBar.currentHeight;
 
-export default function Home() {
+export default function Home({navigation}) {
 
   return (
     <SafeAreaView style={styles.container}>
@@ -22,7 +23,7 @@ export default function Home() {
             source={require('../../assets/logo-vestibulado-2.png')}
             style={styles.imagens}
             resizeMode='cover'
-          />
+            />
           <Text style={styles.tittle}>NOSSO PROJETO</Text>
         </View>
 
@@ -84,6 +85,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     fontSize: 30,
     color: '#171626',
-    fontWeight: 'bold'
+    fontWeight: 'bold'  
   }
 });

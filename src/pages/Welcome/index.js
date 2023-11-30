@@ -28,11 +28,11 @@ export default function Welcome() {
                 <Text style={styles.title}>Seu APP para Concursos e Vestibulados!</Text>
                 <Text style={styles.text}>Bons estudos...</Text>
            
-           {/*    <TouchableOpacity> 
+               <TouchableOpacity 
                 style={styles.button}
-                onPress={ () => navigation.navigate('Home') }
+                onPress={ () => navigation.navigate('Home') }>
                     <Text style={styles.buttonText}>Acessar</Text>
-                </TouchableOpacity>  */}
+                </TouchableOpacity> 
             </Animatable.View>
 
         </View>
