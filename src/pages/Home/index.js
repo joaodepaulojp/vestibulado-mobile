@@ -6,7 +6,8 @@ import {
     View, 
     ScrollView, 
     StatusBar, 
-    SafeAreaView, 
+    SafeAreaView,
+    Image, 
     Platform} from 'react-native';
 
 const statusBarHeight = StatusBar.currentHeight;
@@ -17,15 +18,21 @@ export default function Home() {
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <View style={styles.content}>
-          <Text>sdlhf poisdnfoip gvoisjpovi</Text>
+          <Image
+            source={require('../../assets/logo-vestibulado-2.png')}
+            style={styles.imagens}
+            resizeMode='cover'
+          />
+          <Text style={styles.tittle}>NOSSO PROJETO</Text>
         </View>
 
         <View style={styles.content}>
-          <Text>Conteúdo</Text>
-        </View>
-
-        <View style={styles.content}>
-          <Text>Conteúdo</Text>
+          <Image
+            source={require('../../assets/enem-cadernos.png')}
+            style={styles.imagens}
+            resizeMode= 'cover'
+          />
+          <Text style={styles.tittle}>ENEM 2022</Text>
         </View>
 
         <View style={styles.content}>
@@ -43,7 +50,7 @@ export default function Home() {
         <View style={styles.content}>
           <Text>Conteúdo</Text>
         </View>
-        
+                
       </ScrollView>
 
     </SafeAreaView>
@@ -53,10 +60,11 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#040316',
+    backgroundColor: '#171626',
     paddingTop: Platform.OS === 'android' ? statusBarHeight : 25,
   },
   content:{
+    borderRadius: 5,
     alignSelf: 'center',
     flex:1,
     width: '98%',
@@ -65,5 +73,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#f1f1f1',
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  imagens:{
+    width: '100%',
+    height: 120,
+    opacity: 0.2
+  },
+  tittle:{
+    position: 'absolute',
+    alignItems: 'center',
+    fontSize: 30,
+    color: '#171626',
+    fontWeight: 'bold'
   }
 });
