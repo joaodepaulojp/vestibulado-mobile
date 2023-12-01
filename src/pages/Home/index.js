@@ -24,7 +24,8 @@ export default function Home({navigation}) {
             style={styles.imagens}
             resizeMode='cover'
             />
-          <Text style={styles.tittle}>NOSSO PROJETO</Text>
+          <Text style={styles.tittle}
+          onPress={ () => navigation.navigate('Sobre') }>NOSSO PROJETO</Text>
         </View>
 
         <View style={styles.content}>

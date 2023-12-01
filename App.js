@@ -3,7 +3,8 @@ import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import Routes from './src/routes';
 import Welcome from './src/pages/Welcome';
-import Home from './src/pages/Home';
+//import Home from './src/pages/Home';
+import Sobre from './src/pages/Sobre';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
@@ -32,6 +33,10 @@ export default function App() {
       options={{
         headerShown: false
       }}
+      />
+      
+      <Stack.Screen name="Sobre"
+      component={Sobre}
       />
       </Stack.Navigator>
     </NavigationContainer>
