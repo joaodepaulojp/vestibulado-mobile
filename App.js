@@ -5,6 +5,9 @@ import Routes from './src/routes';
 import Welcome from './src/pages/Welcome';
 //import Home from './src/pages/Home';
 import Sobre from './src/pages/Sobre';
+import Enem2023 from './src/pages/Enem/Enem2023';
+
+
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
@@ -34,10 +37,15 @@ export default function App() {
         headerShown: false
       }}
       />
-      
+
       <Stack.Screen name="Sobre"
       component={Sobre}
       />
+
+      <Stack.Screen name="Enem2023"
+      component={Enem2023}
+      />
+
       </Stack.Navigator>
     </NavigationContainer>
   )

@@ -34,7 +34,8 @@ export default function Home({navigation}) {
             style={styles.imagens}
             resizeMode= 'cover'
           />
-          <Text style={styles.tittle}>ENEM 2022</Text>
+          <Text style={styles.tittle}
+          onPress={ () => navigation.navigate('Enem2023') }>ENEM 2023</Text>
         </View>
 
         <View style={styles.content}>
@@ -62,14 +63,14 @@ export default function Home({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#171626',
+    backgroundColor: '#38a69d',
     paddingTop: Platform.OS === 'android' ? statusBarHeight : 25,
   },
   content:{
     borderRadius: 5,
     alignSelf: 'center',
     flex:1,
-    width: '98%',
+    width: '97%',
     height: 120,
     marginBottom: 20,
     backgroundColor: '#f1f1f1',
