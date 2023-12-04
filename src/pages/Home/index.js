@@ -39,19 +39,39 @@ export default function Home({navigation}) {
         </View>
 
         <View style={styles.content}>
-          <Text>Conteúdo</Text>
+        <Image
+            source={require('../../assets/enem-cadernos.png')}
+            style={styles.imagens}
+            resizeMode= 'cover'
+          />
+          <Text style={styles.tittle}>ENEM 2022</Text>
         </View>
 
         <View style={styles.content}>
-          <Text>Conteúdo</Text>
+        <Image
+            source={require('../../assets/enem-cadernos.png')}
+            style={styles.imagens}
+            resizeMode= 'cover'
+          />
+          <Text style={styles.tittle}>ENEM 2021</Text>
         </View>
         
         <View style={styles.content}>
-          <Text>Conteúdo</Text>
+        <Image
+            source={require('../../assets/enem-cadernos.png')}
+            style={styles.imagens}
+            resizeMode= 'cover'
+          />
+          <Text style={styles.tittle}>ENEM 2020</Text>
         </View>
 
         <View style={styles.content}>
-          <Text>Conteúdo</Text>
+        <Image
+            source={require('../../assets/enem-cadernos.png')}
+            style={styles.imagens}
+            resizeMode= 'cover'
+          />
+          <Text style={styles.tittle}>ENEM 2019</Text>
         </View>
                 
       </ScrollView>
