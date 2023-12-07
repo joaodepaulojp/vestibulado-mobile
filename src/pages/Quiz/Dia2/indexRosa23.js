@@ -1,20 +1,47 @@
 import React, { useState, useEffect } from 'react';
+import { supabase } from '../../../../lib/supabase';
 import { View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import * as Animatable from 'react-native-animatable'
-import Timer from 'react-native-timer';
 import { useNavigation } from '@react-navigation/native';
 import { ScrollView } from 'react-native';
 
-export default function QuizAmarelo() {
+export default function QuizRosa2Dia23() {
     const navigation = useNavigation();
-
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [score, setScore] = useState(0);
     const [showScore, setShowScore] = useState(false);
     const [ShowButton, setShowButton] = useState(false);
-    
     const initialTime = 10 * 60; // 10 minutos em segundos
-  const [timer, setTimer] = useState(initialTime);
+    const [timer, setTimer] = useState(initialTime);
+
+
+    const [pergunta, setPergunta] = useState([]);
+
+  useEffect(() => {
+    // Função para buscar dados no Supabase
+    const fetchPergunta = async () => {
+      try {
+        // Inserir dentro do .from('Tabela X') a tabela que será consultada
+        const { data, error } = await supabase
+        .from('Quiz')
+        .select('*')
+        .in('assunto', ['CN', 'MAT']);
+
+        if (error) {
+          throw error;
+        }
+
+        setPergunta(data);
+      } catch (error) {
+        console.error('Erro ao buscar dados:', error.message);
+      }
+    };
+
+    // Chamar a função de busca quando o componente for montado
+    fetchPergunta();
+  }, []); // A lista vazia de dependências garante que a chamada ocorra apenas uma vez
+
+
 
   const startTimer = () => {
     const timerId = setInterval(() => {
@@ -38,113 +65,8 @@ export default function QuizAmarelo() {
     return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
   };
 
-
-    const quizData = [
-        {
-            question: 'Quem foi o primeiro presidente do Brasil?',
-            options: ['a) Getúlio Vargas', 'b) Juscelino Kubitschek', 'c) Marechal Deodoro da Fonseca', 'd) Tancredo Neves'],
-            answer: 'c) Marechal Deodoro da Fonseca'
-        },
-        {
-            question: 'Em que ano ocorreu a Independência do Brasil?',
-            options: ['a) 1808', 'b) 1822', 'c) 1889', 'd) 1900'],
-            answer: 'b) 1822'
-        },
-        {
-            question: 'Qual evento histórico deu início à Primeira Guerra Mundial?',
-            options: ['a) Ataque a Pearl Harbor', 'b) Assassinato de Franz Ferdinand', 'c) Revolução Russa', 'd) Invasão da Normandia'],
-            answer: 'b) Assassinato de Franz Ferdinand'
-        },
-        {
-            question: 'Qual é o maior rio do mundo em volume de água?',
-            options: ['a) Nilo', 'b) Amazonas', 'c) Yangtzé', 'd) Mississippi'],
-            answer: 'b) Amazonas'
-        },
-        {
-            question: 'Qual é a capital do Japão?',
-            options: ['a) Pequim', 'b) Tóquio', 'c) Seul', 'd) Bangkok'],
-            answer: 'b) Tóquio'
-        },
-        {
-            question: 'Qual é a capital do Canadá?',
-            options: ['a) Ottawa', 'b) Toronto', 'c) Vancouver', 'd) Montreal'],
-            answer: 'a) Ottawa'
-        },
-        {
-            question: 'Qual é a função da conjunção "porque" em uma frase?',
-            options: ['a) Adição', 'b) Causa', 'c) Condição', 'd) Comparação'],
-            answer: 'b) Causa'
-        },
-        {
-            question: 'Qual é o plural de "papel"?',
-            options: ['a) Papéis', 'b) Papéis', 'c) Papelões', 'd) Papelites'],
-            answer: 'a) Papéis'
-        },
-        {
-            question: 'Identifique a classe gramatical da palavra "rápido" na frase: "O carro é muito rápido."',
-            options: ['a) Substantivo', 'b) Verbo', 'c) Adjetivo', 'd) Advérbio'],
-            answer: 'c) Adjetivo'
-        },
-        {
-            question: 'Complete a frase com o pronome possessivo correto: "Aquela casa é _____."',
-            options: ['a) minha', 'b) meu', 'c) nossos', 'd) eu'],
-            answer: 'a) minha'
-        },
-        {
-            question: 'Quem proclamou a República no Brasil em 1889?',
-            options: ['a) Dom Pedro II', 'b) Marechal Deodoro da Fonseca', 'c) Princesa Isabel', 'd) Tiradentes'],
-            answer: 'b) Marechal Deodoro da Fonseca'
-        },
-        {
-            question: 'Quem liderou o movimento pelos direitos civis nos Estados Unidos nos anos 1960?',
-            options: ['a) Malcolm X', 'b) Abraham Lincoln', 'c) John F. Kennedy', 'd) Martin Luther King Jr.'],
-            answer: 'd) Martin Luther King Jr.'
-        },
-        {
-            question: 'O que motivou a construção da Muralha da China?',
-            options: ['a) Defesa contra invasões', 'b) Controle do comércio', 'c) Rota de migração', 'd) Construção de ferrovias'],
-            answer: 'a) Defesa contra invasões'
-        },
-        {
-            question: 'Quais são os oceanos que banham o Brasil?',
-            options: ['a) Atlântico e Índico', 'b) Pacífico e Índico', 'c) Atlântico e Pacífico', 'd) Antártico e Ártico'],
-            answer: 'c) Atlântico e Pacífico'
-        },
-        {
-            question: 'Identifique a classe gramatical da palavra "rápido" na frase: "O carro é muito rápido."',
-            options: ['a) Substantivo', 'b) Verbo', 'c) Adjetivo', 'd) Advérbio'],
-            answer: 'c) Adjetivo'
-        },
-        {
-            question: 'Complete a frase com o pronome possessivo correto: "Aquela casa é _____."',
-            options: ['a) minha', 'b) meu', 'c) nossos', 'd) eu'],
-            answer: 'a) minha'
-        },
-        {
-            question: 'Quem proclamou a República no Brasil em 1889?',
-            options: ['a) Dom Pedro II', 'b) Marechal Deodoro da Fonseca', 'c) Princesa Isabel', 'd) Tiradentes'],
-            answer: 'b) Marechal Deodoro da Fonseca'
-        },
-        {
-            question: 'Quem liderou o movimento pelos direitos civis nos Estados Unidos nos anos 1960?',
-            options: ['a) Malcolm X', 'b) Abraham Lincoln', 'c) John F. Kennedy', 'd) Martin Luther King Jr.'],
-            answer: 'd) Martin Luther King Jr.'
-        },
-        {
-            question: 'O que motivou a construção da Muralha da China?',
-            options: ['a) Defesa contra invasões', 'b) Controle do comércio', 'c) Rota de migração', 'd) Construção de ferrovias'],
-            answer: 'a) Defesa contra invasões'
-        },
-        {
-            question: 'Quais são os oceanos que banham o Brasil?',
-            options: ['a) Atlântico e Índico', 'b) Pacífico e Índico', 'c) Atlântico e Pacífico', 'd) Antártico e Ártico'],
-            answer: 'c) Atlântico e Pacífico'
-        },
-        
-    ]
-
     const handleAnswer = (selectedAnswer) => {
-    const answer = quizData[currentQuestion]?.answer;
+    const answer = pergunta[currentQuestion]?.answer;
 
     if(answer === selectedAnswer){
         alert('+1 ponto!')
@@ -153,7 +75,7 @@ export default function QuizAmarelo() {
 
     const nextQuestion = currentQuestion + 1;
 
-    if(nextQuestion < quizData.length){
+    if(nextQuestion < pergunta.length){
         setCurrentQuestion(nextQuestion);
         setShowButton(true);
     }
@@ -183,7 +105,7 @@ export default function QuizAmarelo() {
             <View style={styles.containerLogo}>
                 <Animatable.Image
                     animation="flipInY"
-                    source={require('../../assets/logo-vestibulado-2-1.png')}
+                    source={require('../../../assets/logo-vestibulado-2-1.png')}
                     style={{ width:'50%' }}
                     resizeMode='contain'
                 />
@@ -194,20 +116,19 @@ export default function QuizAmarelo() {
 
         
             <Animatable.View delay={600} animation="fadeInUp" style={styles.containerForms}>
-                <Text style={styles.title}>Prova 1° Dia - Cardeno Amarelo</Text>
+                <Text style={styles.title}>Prova 1° Dia - Cardeno Rosa</Text>
                 <ScrollView>
+
                 {showScore ? 
-                
                 <View>
 
                 <View style={styles.scoreContainer}>
-                    <Text style={styles.finalScore}>Você acertou {score} de {quizData.length} questões!</Text>
-                    <Text style={styles.finalScore}>Rendimento Percentual: {score * 100 / quizData.length}%</Text>
+
+                    <Text style={styles.finalScore}>Você acertou {score} de {pergunta.length} questões!</Text>
+                    <Text style={styles.finalScore}>Rendimento Percentual: {score * 100 / pergunta.length}%</Text>
                     <Text style={styles.finalScoreGabarito}>Gabarito</Text>
 
-
-
-                <View style={styles.tabela}>
+                    <View style={styles.tabela}>
                     {/* Linha 1 */}
                     <View style={styles.linhaPergunta}>
                         <View style={styles.celula}><Text style={styles.celulaText}>1</Text></View>
@@ -265,40 +186,36 @@ export default function QuizAmarelo() {
                         <View style={styles.celula}><Text style={styles.celulaText}>c</Text></View>
                     </View>
 
-                </View>
+                    </View>
 
                 </View>
 
-                <View>
+                    <View>
                     <TouchableOpacity style={styles.handleRestartButton} onPress={handleRestart}>
                         <Text style={styles.handleRestartButtonText}>Recomeçar</Text>
                     </TouchableOpacity>
-                </View>
+                    </View>
 
-                </View>
+                    </View>
                 
+                    :
                 
-                :
-                
-                <View>
-                    <Text style={styles.subTitle}>Questão {currentQuestion + 1} de {quizData.length}</Text> 
+                    <View>
+                    <Text style={styles.subTitle}>Questão {currentQuestion + 1} de {pergunta.length}</Text> 
                     <Text style={styles.timer}>{formatTime(timer)}</Text>
-
-                    <View style={styles.questionContainer}>
-
+                        
+                        <View style={styles.questionContainer}>
                         <View style={styles.questionTextContainer}>
-                        <Text style={styles.questionText}>{quizData[currentQuestion]?.question}</Text>
+                        <Text style={styles.questionText}>{pergunta[currentQuestion]?.question}</Text>
                         </View>
-                    
-                        {quizData[currentQuestion]?.options.map((item) => {
+                        {pergunta[currentQuestion]?.options.map((item) => {
                         return <TouchableOpacity onPress={() => handleAnswer(item)} style={styles.optionContainer}>
                             <Text style={styles.optionStyle}>{item}</Text>
                             </TouchableOpacity>
                         })}
-
                     </View>
-
                 </View>
+                
                 }
                 
                 {ShowButton ? <TouchableOpacity style={styles.handleBackButton} onPress={handleBack}><Text style={styles.handleBackButtonText}>Voltar</Text></TouchableOpacity> : <></>}
@@ -330,7 +247,7 @@ const styles = StyleSheet.create({
     },
     title:{
         alignSelf: 'center',
-        fontSize: 23,
+        fontSize: 24,
         fontWeight: 'bold',
         marginTop: 28,
         marginBottom: 5

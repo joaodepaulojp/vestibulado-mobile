@@ -5,10 +5,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import Routes from './src/routes';
 import Welcome from './src/pages/Welcome';
 //import Home from './src/pages/Home';
-import QuizRosa from './src/pages/Quiz/indexRosa23';
-import QuizAzul from './src/pages/Quiz/indexAzul23';
-import QuizBranco from './src/pages/Quiz/indexBranco23';
-import QuizAmarelo from './src/pages/Quiz/indexAmarelo23';
+import QuizRosa from './src/pages/Quiz/Dia1/indexRosa23';
+import QuizRosaLC23 from './src/pages/Quiz/LinguagensECódigos/indexRosa23';
+import QuizRosaCH23 from './src/pages/Quiz/CienciasHumanas/indexRosa23';
+import QuizRosaCN23 from './src/pages/Quiz/CienciasDaNatureza/indexRosa23';
+import QuizRosaMAT23 from './src/pages/Quiz/Matematica/indexRosa23';
+import QuizRosa2Dia23 from './src/pages/Quiz/Dia2/indexRosa23';
 import Gabarito from './src/pages/Quiz/indexGabarito23';
 import Sobre from './src/pages/Sobre';
 import Enem2023 from './src/pages/Enem/Enem2023';
@@ -48,16 +50,24 @@ export default function App() {
       component={QuizRosa}
       />
 
-      <Stack.Screen name="QuizAzul"
-      component={QuizAzul}
+      <Stack.Screen name="QuizRosaLC23"
+      component={QuizRosaLC23}
       />
 
-      <Stack.Screen name="QuizBranco"
-      component={QuizBranco}
+      <Stack.Screen name="QuizRosaCH23"
+      component={QuizRosaCH23}
       />
 
-      <Stack.Screen name="QuizAmarelo"
-      component={QuizAmarelo}
+      <Stack.Screen name="QuizRosaCN23"
+      component={QuizRosaCN23}
+      />
+
+      <Stack.Screen name="QuizRosaMAT23"
+      component={QuizRosaMAT23}
+      />
+
+      <Stack.Screen name="QuizRosa2Dia23"
+      component={QuizRosa2Dia23}
       />
 
       <Stack.Screen name="Gabarito"

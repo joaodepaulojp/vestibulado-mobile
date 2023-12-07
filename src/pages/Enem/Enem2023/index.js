@@ -23,42 +23,42 @@ export default function Enem2023() {
             <Animatable.View delay={600} animation="fadeInUp" style={styles.containerForms}>
 
             <Text style={styles.title}>Prova 1º Dia</Text>
-                <Text style={styles.text} onPress={ () => navigation.navigate('QuizRosa') }>Caderno rosa</Text>
-                <Text style={styles.text} onPress={() => navigation.navigate('QuizAzul')}>Caderno azul</Text>
-                <Text style={styles.text } onPress={() => navigation.navigate('QuizBranco')}>Caderno branco</Text>
-                <Text style={styles.text} onPress={() => navigation.navigate('QuizAmarelo')}>Caderno amarelo</Text>
-                <Text style={styles.text} onPress={() => navigation.navigate('Gabarito')}>Gabarito Oficial</Text>
+                <Text style={styles.text} onPress={ () => navigation.navigate('QuizRosa')}>Caderno rosa</Text>
+                <Text style={styles.text}>Caderno azul</Text>
+                <Text style={styles.text}>Caderno branco</Text>
+                <Text style={styles.text}>Caderno amarelo</Text>
+                <Text style={styles.text}>Gabarito Oficial</Text>
             
 <           Text style={styles.title}>Prova 2º Dia</Text>
-                <Text style={styles.text}>Caderno rosa</Text>
+                <Text style={styles.text} onPress={ () => navigation.navigate('QuizRosa2Dia23')}>Caderno rosa</Text>
                 <Text style={styles.text}>Caderno azul</Text>
                 <Text style={styles.text}>Caderno branco</Text>
                 <Text style={styles.text}>Caderno amarelo</Text>
                 <Text style={styles.text}>Gabarito Oficial</Text>
 
             <Text style={styles.title}>Linguagens e Códigos</Text>
-                <Text style={styles.text}>Caderno rosa</Text>
+                <Text style={styles.text} onPress={ () => navigation.navigate('QuizRosaLC23')}>Caderno rosa</Text>
                 <Text style={styles.text}>Caderno azul</Text>
                 <Text style={styles.text}>Caderno branco</Text>
                 <Text style={styles.text}>Caderno amarelo</Text>
                 <Text style={styles.text}>Gabarito Oficial</Text>
 
             <Text style={styles.title}>Ciências Humanas</Text>
-                <Text style={styles.text}>Caderno rosa</Text>
+                <Text style={styles.text} onPress={ () => navigation.navigate('QuizRosaCH23')}>Caderno rosa</Text>
                 <Text style={styles.text}>Caderno azul</Text>
                 <Text style={styles.text}>Caderno branco</Text>
                 <Text style={styles.text}>Caderno amarelo</Text>
                 <Text style={styles.text}>Gabarito Oficial</Text>
 
             <Text style={styles.title}>Ciências da Natureza</Text>
-                <Text style={styles.text}>Caderno rosa</Text>
+                <Text style={styles.text} onPress={ () => navigation.navigate('QuizRosaCN23')}>Caderno rosa</Text>
                 <Text style={styles.text}>Caderno azul</Text>
                 <Text style={styles.text}>Caderno branco</Text>
                 <Text style={styles.text}>Caderno amarelo</Text>
                 <Text style={styles.text}>Gabarito Oficial</Text>
 
             <Text style={styles.title}>Matemática</Text>
-            <Text style={styles.text}>Caderno rosa</Text>
+                <Text style={styles.text} onPress={ () => navigation.navigate('QuizRosaMAT23')}>Caderno rosa</Text>
                 <Text style={styles.text}>Caderno azul</Text>
                 <Text style={styles.text}>Caderno branco</Text>
                 <Text style={styles.text}>Caderno amarelo</Text>
