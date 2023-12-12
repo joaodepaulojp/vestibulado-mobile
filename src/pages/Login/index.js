@@ -77,13 +77,15 @@ export default function Login({ setToken }) {
                         onChangeText={(text) => handleChange('password', text)}
                     />
 
+            <TouchableOpacity style={styles.button} title='Login' onPress={handleSubmit}>
+                <Text style={styles.buttonText} >Login</Text>
+            </TouchableOpacity>
+
                 </Animatable.View>
             </KeyboardAvoidingView>
 
 
-            <TouchableOpacity style={styles.button} title='Login' onPress={handleSubmit}>
-                <Text style={styles.buttonText} >Login</Text>
-            </TouchableOpacity>
+            
 
 
         </View>
@@ -113,10 +115,9 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: 'bold',
         marginTop: 25,
-        color: '#a1a1a1',
+        color: '#a1a1a1'
     },
     button: {
-        position: 'absolute',
         backgroundColor: '#38a69d',
         borderRadius: 50,
         paddingVertical: 8,
@@ -125,6 +126,8 @@ const styles = StyleSheet.create({
         bottom: '5%',
         alignItems: 'center',
         alignContent: 'center',
+        marginTop: 50
+
     },
     buttonText: {
         fontSize: 18,

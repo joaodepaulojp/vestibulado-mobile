@@ -7,6 +7,7 @@ import Signin from '../pages/Signin'
 import Home from '../pages/Home'
 import Profile from '../pages/Profile';
 import Search from '../pages/Search';
+import Login from '../pages/Login'
 
 const Tab = createBottomTabNavigator();
 
