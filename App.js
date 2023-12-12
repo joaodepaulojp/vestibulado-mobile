@@ -4,6 +4,7 @@ import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import Routes from './src/routes';
 import Welcome from './src/pages/Welcome';
+import Login from './src/pages/Login';
 //import Home from './src/pages/Home';
 import QuizRosa from './src/pages/Quiz/Dia1/indexRosa23';
 import QuizRosaLC23 from './src/pages/Quiz/LinguagensECódigos/indexRosa23';
@@ -35,6 +36,12 @@ export default function App() {
       <Stack.Navigator initialRouteName='Welcome'>
       <Stack.Screen name = "Welcome"
       component={Welcome}
+      options={{
+        headerShown: false
+      }}/>
+
+      <Stack.Screen name = "Login"
+      component={Login}
       options={{
         headerShown: false
       }}/>

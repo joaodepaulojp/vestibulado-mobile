@@ -1,10 +1,5 @@
 import React from 'react';
-import { View,
-         Text,
-         StyleSheet,
-         Image,
-         TouchableOpacity
-         } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 import * as Animatable from 'react-native-animatable'
 
@@ -30,7 +25,7 @@ export default function Welcome() {
            
                <TouchableOpacity 
                 style={styles.button}
-                onPress={ () => navigation.navigate('Home') }>
+                onPress={ () => navigation.navigate('Login') }>
                     <Text style={styles.buttonText}>Acessar</Text>
                 </TouchableOpacity> 
             </Animatable.View>
