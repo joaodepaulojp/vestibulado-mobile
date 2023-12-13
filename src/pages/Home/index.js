@@ -25,7 +25,7 @@ export default function Home({navigation}) {
             resizeMode='cover'
             />
           <Text style={styles.tittle}
-          onPress={ () => navigation.navigate('Sobre') }></Text>
+          onPress={ () => navigation.navigate('Sobre') }>Nosso Projeto</Text>
         </View>
 
         <View style={styles.content}>
