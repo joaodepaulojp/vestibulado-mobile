@@ -1,50 +1,82 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, Alert} from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { useNavigation } from '@react-navigation/native';
-import { supabase } from '../../../lib/supabase';
 
-export default function Login({ setToken }) {
+import { supabase } from '../../../lib/supabase';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+const Login = () => {
     const navigation = useNavigation();
 
-    // Back-End Login Usuário
-    const [formData, setFormData] = useState({
-        email: '',
-        password: '',
-    });
-
-    const handleChange = (key, value) => {
-        setFormData((prevFormData) => ({
-            ...prevFormData,
-            [key]: value,
-        }));
-    };
-
-    const handleSubmit = async () => {
-        try {
-            const { user, error } = await supabase.auth.signIn({
-                email: formData.email,
-                password: formData.password,
-            });
-            
-            if (!error) {
-                Alert.alert(
-                    'Success',
-                    'Login successful!',
-                    [{ text: 'OK', onPress: () => { } }],
-                    { cancelable: false }
-                );
-                setToken(user?.session?.access_token);
-                navigation.navigate('Home'); // Direcionamento para o componente
-            } else {
-                throw new Error('Invalid credentials');
+    // Lógica de armazenar Token da pessoa logada.
+    const [token, setToken] = useState(null);
+    
+    useEffect(() => {
+        const storeToken = async () => {
+          if (token) {
+            try {
+              await AsyncStorage.setItem('TOKEN: ', JSON.stringify(token));
+            } catch (error) {
+              console.error('Error storing token:', error);
             }
-        } catch (error) {
-            Alert.alert('Error', 'Invalid email or password', [
-                { text: 'OK', onPress: () => { } },
-            ]);
-        }
+          }
+        };
+    
+        storeToken();
+      }, [token]);
+    
+      useEffect(() => {
+        const retrieveToken = async () => {
+          try {
+            const storedToken = await AsyncStorage.getItem('TOKEN: ');
+            if (storedToken) {
+              setToken(JSON.parse(storedToken));
+            }
+          } catch (error) {
+            console.error('Error retrieving token:', error);
+          }
+        };
+    
+        retrieveToken();
+      }, []);
+
+
+
+    const [formData, setFormData] = useState({
+      email: '',
+      password: '',
+    });
+  
+    const handleChange = (key, value) => {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [key]: value,
+      }
+      ));
     };
+
+    console.log(formData);
+
+    const handleAuthentication = async () => {
+      try {
+        const { data, error } = await supabase.auth.signInWithPassword({
+          email: formData.email,
+          password: formData.password,
+        });
+
+        if (error) throw error;
+
+        const newToken = data.token;
+        setToken(newToken);
+
+
+        navigation.navigate('Home');
+  
+      } catch (error) {
+
+        console.error(error);
+      }}
 
 
     return (
@@ -77,15 +109,12 @@ export default function Login({ setToken }) {
                         onChangeText={(text) => handleChange('password', text)}
                     />
 
-            <TouchableOpacity style={styles.button} title='Login' onPress={handleSubmit}>
+            <TouchableOpacity style={styles.button} title='Login' onPress={handleAuthentication}>
                 <Text style={styles.buttonText} >Login</Text>
             </TouchableOpacity>
 
                 </Animatable.View>
             </KeyboardAvoidingView>
-
-
-            
 
 
         </View>
@@ -135,3 +164,5 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
 });
+
+export default Login;
