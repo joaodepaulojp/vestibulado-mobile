@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, Alert} from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, Linking, Alert} from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { useNavigation } from '@react-navigation/native';
 
@@ -79,6 +79,11 @@ const Login = () => {
       }}
 
 
+      const handleCadastro = () => {
+        Linking.openURL('https://vestibulado-login-client.vercel.app/');
+      };
+
+
     return (
         <View style={styles.container}>
 
@@ -109,8 +114,12 @@ const Login = () => {
                         onChangeText={(text) => handleChange('password', text)}
                     />
 
-            <TouchableOpacity style={styles.button} title='Login' onPress={handleAuthentication}>
+            <TouchableOpacity style={styles.buttonLogin} title='Login' onPress={handleAuthentication}>
                 <Text style={styles.buttonText} >Login</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.buttonCadastrar} title='Cadastrar' onPress={handleCadastro}>
+                <Text style={styles.buttonText} >Cadastrar</Text>
             </TouchableOpacity>
 
                 </Animatable.View>
@@ -146,17 +155,25 @@ const styles = StyleSheet.create({
         marginTop: 25,
         color: '#a1a1a1'
     },
-    button: {
+    buttonLogin: {
         backgroundColor: '#38a69d',
         borderRadius: 50,
         paddingVertical: 8,
         width: '60%',
         alignSelf: 'center',
-        bottom: '5%',
         alignItems: 'center',
         alignContent: 'center',
-        marginTop: 50
-
+        marginTop: 28
+    },
+    buttonCadastrar:{
+      backgroundColor: '#38a69d',
+        borderRadius: 50,
+        paddingVertical: 8,
+        width: '60%',
+        alignSelf: 'center',
+        alignItems: 'center',
+        alignContent: 'center',
+        marginTop: 8
     },
     buttonText: {
         fontSize: 18,
