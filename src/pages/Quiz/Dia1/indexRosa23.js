@@ -130,7 +130,7 @@ export default function QuizRosa() {
 
 
             <Animatable.View delay={600} animation="fadeInUp" style={styles.containerForms}>
-                <Text style={styles.title}>Prova 1° Dia - Cardeno Rosa</Text>
+                <Text style={styles.title}>Prova 1° Dia - Caderno Rosa</Text>
                 <ScrollView>
 
                 {/* Exibição dos botões de modo de porva */}
