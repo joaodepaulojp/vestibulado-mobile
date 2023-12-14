@@ -176,43 +176,15 @@ export default function QuizRosaLC23() {
                                                 {/* Linha 2 */}
                                                 <View style={styles.linhaResposta}>
                                                     <View style={styles.celula}><Text style={styles.celulaText}>c</Text></View>
-                                                    <View style={styles.celula}><Text style={styles.celulaText}>b</Text></View>
-                                                    <View style={styles.celula}><Text style={styles.celulaText}>b</Text></View>
-                                                    <View style={styles.celula}><Text style={styles.celulaText}>b</Text></View>
-                                                    <View style={styles.celula}><Text style={styles.celulaText}>b</Text></View>
-                                                    <View style={styles.celula}><Text style={styles.celulaText}>a</Text></View>
-                                                    <View style={styles.celula}><Text style={styles.celulaText}>b</Text></View>
-                                                    <View style={styles.celula}><Text style={styles.celulaText}>a</Text></View>
-                                                    <View style={styles.celula}><Text style={styles.celulaText}>c</Text></View>
-                                                    <View style={styles.celula}><Text style={styles.celulaText}>a</Text></View>
-                                                </View>
-
-                                                {/* Linha 3 */}
-                                                <View style={styles.linhaPergunta}>
-                                                    <View style={styles.celula}><Text style={styles.celulaText}>11</Text></View>
-                                                    <View style={styles.celula}><Text style={styles.celulaText}>12</Text></View>
-                                                    <View style={styles.celula}><Text style={styles.celulaText}>13</Text></View>
-                                                    <View style={styles.celula}><Text style={styles.celulaText}>14</Text></View>
-                                                    <View style={styles.celula}><Text style={styles.celulaText}>15</Text></View>
-                                                    <View style={styles.celula}><Text style={styles.celulaText}>16</Text></View>
-                                                    <View style={styles.celula}><Text style={styles.celulaText}>17</Text></View>
-                                                    <View style={styles.celula}><Text style={styles.celulaText}>18</Text></View>
-                                                    <View style={styles.celula}><Text style={styles.celulaText}>19</Text></View>
-                                                    <View style={styles.celula}><Text style={styles.celulaText}>20</Text></View>
-                                                </View>
-
-                                                {/* Linha 4 */}
-                                                <View style={styles.linhaResposta}>
-                                                    <View style={styles.celula}><Text style={styles.celulaText}>b</Text></View>
-                                                    <View style={styles.celula}><Text style={styles.celulaText}>d</Text></View>
-                                                    <View style={styles.celula}><Text style={styles.celulaText}>a</Text></View>
-                                                    <View style={styles.celula}><Text style={styles.celulaText}>c</Text></View>
-                                                    <View style={styles.celula}><Text style={styles.celulaText}>c</Text></View>
                                                     <View style={styles.celula}><Text style={styles.celulaText}>a</Text></View>
                                                     <View style={styles.celula}><Text style={styles.celulaText}>b</Text></View>
                                                     <View style={styles.celula}><Text style={styles.celulaText}>d</Text></View>
-                                                    <View style={styles.celula}><Text style={styles.celulaText}>a</Text></View>
+                                                    <View style={styles.celula}><Text style={styles.celulaText}>b</Text></View>
+                                                    <View style={styles.celula}><Text style={styles.celulaText}>d</Text></View>
                                                     <View style={styles.celula}><Text style={styles.celulaText}>c</Text></View>
+                                                    <View style={styles.celula}><Text style={styles.celulaText}>c</Text></View>
+                                                    <View style={styles.celula}><Text style={styles.celulaText}>a</Text></View>
+                                                    <View style={styles.celula}><Text style={styles.celulaText}>a</Text></View>
                                                 </View>
 
                                             </View>

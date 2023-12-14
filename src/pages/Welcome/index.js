@@ -20,7 +20,7 @@ export default function Welcome() {
             </View>
 
             <Animatable.View delay={600} animation="fadeInUp" style={styles.containerForms}>
-                <Text style={styles.title}>Seu APP para Concursos e Vestibulados!</Text>
+                <Text style={styles.title}>Seu APP para Concursos e Vestibulares!</Text>
                 <Text style={styles.text}>Bons estudos...</Text>
            
                <TouchableOpacity 
