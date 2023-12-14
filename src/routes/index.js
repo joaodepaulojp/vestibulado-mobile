@@ -41,9 +41,9 @@ export default function Routes() {
                 headerShown: false,
                 tabBarIcon: ({ color, size, focused }) => {
                     if(focused){
-                        return <Ionicons name="home" size={size} color={color} />
+                        return <Ionicons name="game-controller" size={size} color={color} />
                     }
-                    return <Ionicons name="home-outline" size={size} color={color} />
+                    return <Ionicons name="game-controller-outline" size={size} color={color} />
                 }
             }}
             />
@@ -57,9 +57,9 @@ export default function Routes() {
                 headerShown: false,
                 tabBarIcon: ({ color, size, focused }) => {
                     if(focused){
-                        return <Ionicons name="game-controller" size={size} color={color} />
+                        return <Ionicons name="home" size={size} color={color} />
                     }
-                    return <Ionicons name = "game-controller-outline" size={size} color={color} />
+                    return <Ionicons name = "home-outline" size={size} color={color} />
                 }
             }}
             />
@@ -71,9 +71,9 @@ export default function Routes() {
                 headerShown: false,
                 tabBarIcon: ({ color, size, focused }) => {
                     if(focused){
-                        return <Ionicons name="search" size={size} color={color} />
+                        return <Ionicons name="person" size={size} color={color} />
                     }
-                    return <Ionicons name="search-outline" size={size} color={color} />
+                    return <Ionicons name="person-outline" size={size} color={color} />
                 }
             }}
             />
